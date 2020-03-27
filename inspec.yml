@@ -1,0 +1,11 @@
+---
+name: test-renovatebot
+title: Test Renovatebot
+summary: Verify Renovatebot with Inspec
+version: 1.0.0
+supports:
+  - os-family: linux
+depends:
+  - name: linux-baseline
+    git: https://github.com/dev-sec/linux-baseline.git
+    tag: 2.3.0

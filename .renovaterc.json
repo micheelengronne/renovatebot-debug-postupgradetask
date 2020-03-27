@@ -1,0 +1,19 @@
+{
+  "assignees": ["micheelengronne"],
+  "baseBranches": ["master"],
+  "extends": ["config:base"],
+  "regexManagers": [
+    {
+      "fileMatch": ["^inspec.yml$"],
+      "matchStrings": [
+        "git: (?<depName>.*)?\n    tag: (?<currentValue>.*)"
+      ],
+      "datasourceTemplate": "git-tags"
+    }
+  ],
+  "postUpgradeTasks": {
+    "commands": ["ruby-coppint-inspec vendor --overwrite ./"],
+    "fileFilters": ["inspec.lock"]
+  }
+}
+
